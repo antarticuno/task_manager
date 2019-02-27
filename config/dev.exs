@@ -68,8 +68,8 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :task_manager, TaskManager.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "task_manager",
+  password: "task_manager",
   database: "task_manager_dev",
   hostname: "localhost",
   pool_size: 10

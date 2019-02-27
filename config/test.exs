@@ -11,8 +11,8 @@ config :logger, level: :warn
 
 # Configure your database
 config :task_manager, TaskManager.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "task_manager",
+  password: "task_manager",
   database: "task_manager_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

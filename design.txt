@@ -1,0 +1,37 @@
+Task Manager
+
+- Tasks
+- Users
+
+Users can have zero or more tasks, tasks can be assigned to 0 or more people.
+
+Thus, have a table for users, tasks, and an assigns table
+
+Users
++ username
++ name
+
+Tasks
++ title
++ description
++ completed
+
+Assigns
++ user_id
++ task_id
++ time_spent
+
+
+
+
+
+Future design considerations:
+
+Managers table if users can have multiple managers:
++ manager_id
++ underling_id
+
+Manager field if users can only have one manager
+
+
+Time Blocks as another resource
