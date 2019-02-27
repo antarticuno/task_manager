@@ -5,15 +5,17 @@
     </div>
   <% end %>
 
+  <div class="form-group">
   <%= label f, :username %>
-  <%= text_input f, :username %>
+  <%= text_input f, :username, class: "form-control" %>
   <%= error_tag f, :username %>
 
   <%= label f, :name %>
-  <%= text_input f, :name %>
+  <%= text_input f, :name, class: "form-control" %>
   <%= error_tag f, :name %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "btn btn-primary" %>
+  </div>
   </div>
 <% end %>
