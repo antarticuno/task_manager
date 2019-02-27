@@ -28,7 +28,10 @@ defmodule TaskManagerWeb.TaskController do
 
   def show(conn, %{"id" => id}) do
     task = Tasks.get_task!(id)
-    render(conn, "show.html", task: task)
+    user_id = get_session(conn, :user_id)
+    assign_cset = TaskManager.Assigns.change_assign(%TaskManager.Assigns.Assign{
+      taskmaster_id: user_id, task_id: task.id, time_spent: 0})
+    render(conn, "show.html", task: task, assign_cset: assign_cset)
   end
 
   def edit(conn, %{"id" => id}) do

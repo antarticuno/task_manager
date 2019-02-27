@@ -1,7 +1,10 @@
 <h1>Show Assign</h1>
 
 <ul>
-
+  <li>
+    <strong>Task Id:</strong>
+    <%= @assign.task_id %>
+  </li>
   <li>
     <strong>Time spent:</strong>
     <%= @assign.time_spent %>

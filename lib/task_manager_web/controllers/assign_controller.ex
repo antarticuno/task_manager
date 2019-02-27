@@ -15,6 +15,7 @@ defmodule TaskManagerWeb.AssignController do
   end
 
   def create(conn, %{"assign" => assign_params}) do
+    IO.inspect Assigns.create_assign(assign_params)
     case Assigns.create_assign(assign_params) do
       {:ok, assign} ->
         conn

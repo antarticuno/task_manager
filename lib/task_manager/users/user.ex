@@ -8,6 +8,9 @@ defmodule TaskManager.Users.User do
     field :email, :string
 
     timestamps()
+
+# TODO make sure this works
+    has_many :assigns, TaskManager.Assigns.Assign 
   end
 
   @doc false

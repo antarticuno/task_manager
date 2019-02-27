@@ -9,6 +9,8 @@ defmodule TaskManager.Tasks.Task do
     field :title, :string
 
     timestamps()
+
+    has_many :assigns, TaskManager.Assigns.Assign
   end
 
   @doc false

@@ -10,6 +10,6 @@
   <%= error_tag f, :time_spent %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Assign Task" %>
   </div>
 <% end %>
