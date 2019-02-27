@@ -3,7 +3,7 @@ defmodule TaskManager.Repo.Migrations.CreateTasks do
 
   def change do
     create table(:tasks) do
-      add :title, :string
+      add :title, :string, null: false
       add :description, :string
       add :completed, :boolean, default: false, null: false
 

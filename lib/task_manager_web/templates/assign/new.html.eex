@@ -1,0 +1,5 @@
+<h1>New Assign</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.assign_path(@conn, :create)) %>
+
+<span><%= link "Back", to: Routes.assign_path(@conn, :index) %></span>

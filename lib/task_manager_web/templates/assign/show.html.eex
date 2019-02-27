@@ -1,0 +1,13 @@
+<h1>Show Assign</h1>
+
+<ul>
+
+  <li>
+    <strong>Time spent:</strong>
+    <%= @assign.time_spent %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.assign_path(@conn, :edit, @assign) %></span>
+<span><%= link "Back", to: Routes.assign_path(@conn, :index) %></span>

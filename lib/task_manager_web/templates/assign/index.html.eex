@@ -1,0 +1,26 @@
+<h1>Listing Assigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time spent</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for assign <- @assigns do %>
+    <tr>
+      <td><%= assign.time_spent %></td>
+
+      <td>
+        <%= link "Show", to: Routes.assign_path(@conn, :show, assign) %>
+        <%= link "Edit", to: Routes.assign_path(@conn, :edit, assign) %>
+        <%= link "Delete", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Assign", to: Routes.assign_path(@conn, :new) %></span>

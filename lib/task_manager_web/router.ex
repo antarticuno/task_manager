@@ -19,6 +19,7 @@ defmodule TaskManagerWeb.Router do
     get "/", PageController, :index
     resources "/users", UserController
     resources "/tasks", TaskController
+    resources "/assigns", AssignController
   end
 
   # Other scopes may use custom stacks.
