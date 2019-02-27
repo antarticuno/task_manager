@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias TaskManager.Repo
+alias TaskManager.Users.User
+
+Repo.insert!(%User{email: "example1@example.com", name: "Antartikun"})
+Repo.insert!(%User{email: "example2@example.com", name: "Brenda"})
