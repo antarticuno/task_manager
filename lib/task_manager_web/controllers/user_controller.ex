@@ -18,9 +18,10 @@ defmodule TaskManagerWeb.UserController do
     case Users.create_user(user_params) do
       {:ok, user} ->
         conn
+        |> put_session(:user_id, user.id)
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.user_path(conn, :show, user))
-
+        |> redirect(to: Routes.task_path(conn, :index))
+#TODO make this show the tasks for the user in tasks
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

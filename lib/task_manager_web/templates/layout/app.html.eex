@@ -24,13 +24,13 @@
 	  </ul>
 	</div>
 	<div class="col-4">
-	  <%= if @current-user do %>
+	  <%= if @current_user do %>
 	    <p class="my-3">
-	      User: <%= current-user.email %> | 
-	      <%= link("Logout", to:Routes.session_path(@conn, :delete), method: :delete) %>
+	      User: <%= @current_user.email %> | 
+	      <%= link "Logout", to: Routes.session_path(@conn, :delete), method: :delete %>
 	    </p>
 	  <% else %>
-	    <%= form for @conn, Routes.session_path(@conn, :create),
+	    <%= form_for @conn, Routes.session_path(@conn, :create),
 	             [class: "form-inline"], fn f -> %>
 	      <%= text_input f, :email, class: "form-control" %>
 	      <%= submit "Login", class: "btn btn-secondary" %>

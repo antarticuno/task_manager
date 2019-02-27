@@ -21,6 +21,7 @@ defmodule TaskManagerWeb.Router do
     resources "/users", UserController
     resources "/tasks", TaskController
     resources "/assigns", AssignController
+    resources "/sessions", SessionController, only: [:create, :delete], singleton: true
   end
 
   # Other scopes may use custom stacks.

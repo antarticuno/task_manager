@@ -5,7 +5,7 @@ defmodule TaskManager.Users.User do
 
   schema "users" do
     field :name, :string
-    field :username, :string
+    field :email, :string
 
     timestamps()
   end
@@ -13,7 +13,7 @@ defmodule TaskManager.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :name])
-    |> validate_required([:username, :name])
+    |> cast(attrs, [:email, :name])
+    |> validate_required([:email, :name])
   end
 end
