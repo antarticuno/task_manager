@@ -63,7 +63,7 @@ defmodule TaskManager.Assigns do
 
   """
   def create_assign(attrs \\ %{}) do
-    %Assign{}
+    %Assign{time_spent: 0}
     |> Assign.changeset(attrs)
     |> Repo.insert()
   end

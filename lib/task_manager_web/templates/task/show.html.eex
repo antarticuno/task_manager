@@ -21,7 +21,8 @@
 
 <%= if @current_user do %>
   <div>
-    <%= form_for @assign_cset, Routes.assign_path(@conn, :create),
+    <%= form_for @assign_cset, Routes.assign_path(@conn,
+        :create, %{taskmaster_id: @current_user.id, task_id: @task.id, time_spent: 0}),
         [class: "form-inline"], fn f -> %>
       <%= hidden_input f, :taskmaster_id %>
       <%= hidden_input f, :task_id %>

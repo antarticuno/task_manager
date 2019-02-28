@@ -13,6 +13,7 @@
       </thead>
       <tbody>
         <%= for assign <- @assigns do %>
+          <%= if !assign.task.completed do %>
           <tr>
 
             <td><%= assign.task.title %></td>
@@ -24,6 +25,7 @@
               <%= link "Quit Task", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
             </td>
           </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
