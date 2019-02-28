@@ -4,12 +4,21 @@
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+  <div class="form-group">
+    <%= label f, :taskmaster_id %>
+    <%= text_input f, :taskmaster_id, class: "form-control" %>
+    <%= error_tag f, :taskmaster_id %>
 
-  <%= label f, :time_spent %>
-  <%= number_input f, :time_spent %>
-  <%= error_tag f, :time_spent %>
+    <%= label f, :time_spent %>
+    <%= number_input f, :time_spent, class: "form-control" %>
+    <%= error_tag f, :time_spent %>
 
-  <div>
-    <%= submit "Assign Task" %>
+    <%= label f, :task_id %>
+    <%= text_input f, :task_id, class: "form-control" %>
+    <%= error_tag f, :task_id %>
+
+    <div>
+      <%= submit "Assign Task", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

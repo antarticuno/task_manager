@@ -3,16 +3,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Task Id</th>
+      <th>Task</th>
       <th>Time spent</th>
-      <th>Assignee</th>
+      <th>Assigned To</th>
     </tr>
   </thead>
   <tbody>
 <%= for assign <- @assigns do %>
     <tr>
 
-      <td><%= assign.task_id %></td>
+      <td><%= assign.task.title %></td>
       <td><%= assign.time_spent %></td>
       <td><%= assign.taskmaster_id %></td>
 

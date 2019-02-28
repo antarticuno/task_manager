@@ -10,7 +10,7 @@ defmodule TaskManager.Users.User do
     timestamps()
 
 # TODO make sure this works
-    has_many :assigns, TaskManager.Assigns.Assign 
+    has_many :assigns, TaskManager.Assigns.Assign, foreign_key: :taskmaster_id 
   end
 
   @doc false

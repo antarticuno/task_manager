@@ -5,7 +5,7 @@ defmodule TaskManager.Assigns.Assign do
 
   schema "assigns" do
     field :time_spent, :integer
-    belongs_to :taskmaster, TaskManager.Users.User
+    belongs_to :user, TaskManager.Users.User, foreign_key: :taskmaster_id
     belongs_to :task, TaskManager.Tasks.Task
 
     timestamps()
