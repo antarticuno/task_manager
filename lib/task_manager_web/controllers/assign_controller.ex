@@ -27,18 +27,18 @@ defmodule TaskManagerWeb.AssignController do
   end
 
   def show(conn, %{"id" => id}) do
-    assign = Assigns.get_assign!(id)
+    assign = Assigns.get_assign(id)
     render(conn, "show.html", assign: assign)
   end
 
   def edit(conn, %{"id" => id}) do
-    assign = Assigns.get_assign!(id)
+    assign = Assigns.get_assign(id)
     changeset = Assigns.change_assign(assign)
     render(conn, "edit.html", assign: assign, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "assign" => assign_params}) do
-    assign = Assigns.get_assign!(id)
+    assign = Assigns.get_assign(id)
 
     case Assigns.update_assign(assign, assign_params) do
       {:ok, assign} ->
@@ -52,7 +52,7 @@ defmodule TaskManagerWeb.AssignController do
   end
 
   def delete(conn, %{"id" => id}) do
-    assign = Assigns.get_assign!(id)
+    assign = Assigns.get_assign(id)
     {:ok, _assign} = Assigns.delete_assign(assign)
 
     conn

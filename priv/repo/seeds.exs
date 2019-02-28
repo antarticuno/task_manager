@@ -15,3 +15,7 @@ alias TaskManager.Users.User
 
 Repo.insert!(%User{email: "example1@example.com", name: "Antartikun"})
 Repo.insert!(%User{email: "example2@example.com", name: "Brenda"})
+Repo.insert!(%Task{title: "HW06", description: "Create a task manager web application",
+                   completed: false})
+Repo.insert!(%Task{title: "HW05", description: "Finish the memory game", completed: true})
+Repo.insert!(%Assign{taskmaster_id: 1, task_id: 1, time_spent: 8})

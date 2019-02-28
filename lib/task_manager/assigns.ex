@@ -18,7 +18,8 @@ defmodule TaskManager.Assigns do
 
   """
   def list_assigns do
-    Repo.all(Assign)
+    Repo.all from a in Assign,
+      preload: [:user, :task]
   end
 
   @doc """
@@ -36,6 +37,12 @@ defmodule TaskManager.Assigns do
 
   """
   def get_assign!(id), do: Repo.get!(Assign, id)
+
+  def get_assign(id) do
+    Repo.one from a in Assign,
+      where: a.id == ^id,
+      preload: [:user, :task]
+  end
 
   @doc """
   Creates a assign.

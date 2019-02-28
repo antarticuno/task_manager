@@ -4,7 +4,7 @@ defmodule TaskManager.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :email, :string, null: false
-      add :name, :string
+      add :name, :string, null: false
 
       timestamps()
     end
