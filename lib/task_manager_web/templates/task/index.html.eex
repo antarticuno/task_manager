@@ -19,9 +19,9 @@
       <td><%= task.completed %></td>
 
       <td class="w-100 p-3">
-        <%= link "Show", to: Routes.task_path(@conn, :show, task),
+        <%= link "More", to: Routes.task_path(@conn, :show, task),
             class: "btn btn-secondary"%>
-        <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
+        <%= link "Assign", to: Routes.assign_path(@conn, :create),
             class: "btn btn-info" %>
         <%= link "Delete", to: Routes.task_path(@conn, :delete, task), 
             method: :delete, data: [confirm: "Are you sure?"],

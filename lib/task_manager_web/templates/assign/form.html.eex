@@ -5,16 +5,16 @@
     </div>
   <% end %>
   <div class="form-group">
-    <%= label f, :taskmaster_id %>
-    <%= text_input f, :taskmaster_id, class: "form-control" %>
+    <%= label f, :assigned_to %> 
+    <%= select f, :taskmaster_id, Enum.map(@users, &({&1.name, &1.id})), class: "form-control" %>
     <%= error_tag f, :taskmaster_id %>
-
+    
     <%= label f, :time_spent %>
     <%= number_input f, :time_spent, class: "form-control", step: 15 %>
     <%= error_tag f, :time_spent %>
 
-    <%= label f, :task_id %>
-    <%= text_input f, :task_id, class: "form-control" %>
+    <%= label f, :task %>
+    <%= select f, :task_id, Enum.map(@tasks, &({&1.title, &1.id})) ,class: "form-control" %>
     <%= error_tag f, :task_id %>
 
     <div>

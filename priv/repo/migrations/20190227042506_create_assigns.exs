@@ -12,5 +12,6 @@ defmodule TaskManager.Repo.Migrations.CreateAssigns do
 
     create index(:assigns, [:taskmaster_id])
     create index(:assigns, [:task_id])
+    create unique_index(:assigns, [:taskmaster_id, :task_id])
   end
 end

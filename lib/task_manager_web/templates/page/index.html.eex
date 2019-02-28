@@ -20,7 +20,7 @@
 
             <td>
               <%= link "Log Work", to: Routes.assign_path(@conn, :edit, assign), class: "btn btn-secondary" %>
-              <%= link "Edit Task", to: Routes.task_path(@conn, :edit, assign.task), class: "btn btn-info" %>
+              <%= link "Edit/Finish", to: Routes.task_path(@conn, :edit, assign.task), class: "btn btn-info" %>
               <%= link "Quit Task", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
             </td>
           </tr>

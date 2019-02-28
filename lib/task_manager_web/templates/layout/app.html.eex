@@ -10,11 +10,12 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-expand-sm navbar-light bg-white">
-        <div class="col-4">
+        <div class="col-3">
 		<!-- <a class="navbar-brand title" href="">Task Manager</a> -->
 	  <%= link "Task Manager", to: Routes.page_path(@conn, :index), class: "navbar-brand title" %>
 	</div>
-	<div class="col-4">
+	<div class="col-6">
+
 	  <ul class="navbar-nav mr-auto">
 	    <li class="nav-item">
 	      <a href="<%= Routes.task_path(@conn, :index) %>" class="nav-link">Tasks</a>
@@ -23,10 +24,13 @@
 	    <li class="nav-item">
 	      <a href="<%= Routes.page_path(@conn, :index) %>" class="nav-link">My Tasks</a>
 	    </li>
+	    <li class="nav-item">
+	      <a href="<%= Routes.assign_path(@conn, :index) %>" class="nav-link">In Progress</a>
+	    </li>
 	    <% end %>
 	  </ul>
 	</div>
-	<div class="col-4">
+	<div class="col-3">
 	  <%= if @current_user do %>
 	    <p class="my-3">
 	      User: <%= @current_user.email %> <%= link "Logout", to: Routes.session_path(@conn, :delete), method: :delete %>

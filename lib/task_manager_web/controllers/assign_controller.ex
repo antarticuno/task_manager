@@ -10,8 +10,10 @@ defmodule TaskManagerWeb.AssignController do
   end
 
   def new(conn, _params) do
+    users = TaskManager.Users.list_users()
     changeset = Assigns.change_assign(%Assign{})
-    render(conn, "new.html", changeset: changeset)
+    tasks = TaskManager.Tasks.list_tasks()
+    render(conn, "new.html", changeset: changeset, users: users, tasks: tasks)
   end
 
   def create(conn, %{"assign" => assign_params}) do
@@ -33,8 +35,10 @@ defmodule TaskManagerWeb.AssignController do
 
   def edit(conn, %{"id" => id}) do
     assign = Assigns.get_assign(id)
+    users = TaskManager.Users.list_users()
+    tasks = TaskManager.Tasks.list_tasks()
     changeset = Assigns.change_assign(assign)
-    render(conn, "edit.html", assign: assign, changeset: changeset)
+    render(conn, "edit.html", assign: assign, changeset: changeset, users: users, tasks: tasks)
   end
 
   def update(conn, %{"id" => id, "assign" => assign_params}) do

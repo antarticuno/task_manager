@@ -13,8 +13,14 @@ defmodule TaskManager.Assigns.Assign do
 
   @doc false
   def changeset(assign, attrs) do
-    assign
-    |> cast(attrs, [:time_spent, :taskmaster_id, :task_id])
-    |> validate_required([:taskmaster_id, :task_id])
+    ts = Map.fetch!(assign, :time_spent)
+    if (rem(ts, 15) == 0) do
+      assign
+      |> cast(attrs, [:time_spent, :taskmaster_id, :task_id])
+      |> validate_required([:taskmaster_id, :task_id])
+      |> unique_constraint(:assigns_taskmaster_id_task_id_index)
+    else
+      {:error, "Invalid unit of time."}
+    end
   end
 end
