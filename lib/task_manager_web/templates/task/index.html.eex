@@ -15,8 +15,8 @@
 <%= for task <- @tasks do %>
     <tr>
       <td><%= task.title %></td>
-      <td><%= Enum.fetch!(task.assigns, 0).user.name%></td>
-      <td><%= Enum.fetch!(task.assigns, 0).time_spent %></td>
+      <td><%= assigned_users(task.assigns) %></td>
+      <td><%= total_time(task.assigns) %></td>
       <td><%= task.completed %></td>
 
       <td>
