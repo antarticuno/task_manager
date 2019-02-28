@@ -28,7 +28,10 @@
         </tbody>
       </table>
 
-      <span><%= link "New Assignment", to: Routes.assign_path(@conn, :new) %></span>
+      <span>
+        <%= link "Create a Task", to: Routes.task_path(@conn, :new), class: "btn btn-primary" %>
+        <%= link "Assign a Task", to: Routes.assign_path(@conn, :new), class: "btn btn-dark" %>
+      </span>
     </div>
   <%= else %>
     <%= link "Get Started!", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
