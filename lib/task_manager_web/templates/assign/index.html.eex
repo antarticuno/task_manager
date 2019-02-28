@@ -1,4 +1,4 @@
-<h1>Listing Assigns</h1>
+<h1>Assignments in Progress</h1>
 
 <table class="table table-striped">
   <thead>
@@ -14,16 +14,16 @@
 
       <td><%= assign.task.title %></td>
       <td><%= assign.time_spent %></td>
-      <td><%= assign.taskmaster_id %></td>
+      <td><%= assign.user.name %></td>
 
       <td>
-        <%= link "Show", to: Routes.assign_path(@conn, :show, assign) %>
-        <%= link "Edit", to: Routes.assign_path(@conn, :edit, assign) %>
-        <%= link "Delete", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Show", to: Routes.assign_path(@conn, :show, assign), class: "btn btn-secondary" %>
+        <%= link "Edit", to: Routes.assign_path(@conn, :edit, assign), class: "btn btn-info" %>
+        <%= link "Delete", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Assign", to: Routes.assign_path(@conn, :new) %></span>
+<span><%= link "New Assignment", to: Routes.assign_path(@conn, :new) %></span>

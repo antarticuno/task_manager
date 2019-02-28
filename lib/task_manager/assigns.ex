@@ -22,6 +22,12 @@ defmodule TaskManager.Assigns do
       preload: [:user, :task]
   end
 
+  def list_assigns_for_user(uid) do
+    Repo.all from a in Assign,
+      where: a.taskmaster_id == ^uid,
+      preload: [:user, :task]
+  end
+
   @doc """
   Gets a single assign.
 

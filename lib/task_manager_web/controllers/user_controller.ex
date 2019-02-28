@@ -20,7 +20,7 @@ defmodule TaskManagerWeb.UserController do
         conn
         |> put_session(:user_id, user.id)
         |> put_flash(:info, "User created successfully.")
-        |> redirect(to: Routes.task_path(conn, :index))
+        |> redirect(to: Routes.page_path(conn, :index))
 #TODO make this show the tasks for the user in tasks
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

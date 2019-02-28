@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
+      <th>Assigned To</th>
+      <th>Time Spent</th>
       <th>Completed</th>
 
       <th></th>
@@ -14,7 +15,8 @@
 <%= for task <- @tasks do %>
     <tr>
       <td><%= task.title %></td>
-      <td><%= task.description %></td>
+      <td><%= Enum.fetch!(task.assigns, 0).user.name%></td>
+      <td><%= Enum.fetch!(task.assigns, 0).time_spent %></td>
       <td><%= task.completed %></td>
 
       <td>

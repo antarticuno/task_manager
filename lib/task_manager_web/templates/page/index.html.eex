@@ -1,4 +1,38 @@
 <div class="container">
   <h1>(Slightly) Worse Todo List</h1>
-  <%= link "Get Started!", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
+  <%= if @current_user do %>
+    <div class="col-10">
+    <h3>My Tasks</h3>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Time spent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for assign <- @assigns do %>
+          <tr>
+
+            <td><%= assign.task.title %></td>
+            <td><%= assign.time_spent %></td>
+
+            <td>
+              <%= link "Show", to: Routes.assign_path(@conn, :show, assign), class: "btn btn-secondary" %>
+              <%= link "Edit", to: Routes.assign_path(@conn, :edit, assign), class: "btn btn-info" %>
+              <%= link "Delete", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <span><%= link "New Assignment", to: Routes.assign_path(@conn, :new) %></span>
+    </div>
+  <%= else %>
+    <%= link "Get Started!", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
+  <% end %>
 </div>
+
+
