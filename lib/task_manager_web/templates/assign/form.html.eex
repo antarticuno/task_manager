@@ -10,7 +10,7 @@
     <%= error_tag f, :taskmaster_id %>
 
     <%= label f, :time_spent %>
-    <%= number_input f, :time_spent, class: "form-control" %>
+    <%= number_input f, :time_spent, class: "form-control", step: 15 %>
     <%= error_tag f, :time_spent %>
 
     <%= label f, :task_id %>
