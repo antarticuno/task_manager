@@ -1,14 +1,13 @@
-<h1>Listing Tasks</h1>
+<h1>All Tasks</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Assigned To</th>
-      <th>Time Spent</th>
-      <th>Completed</th>
-
-      <th></th>
+      <th>Assigned?</th>
+      <th>Minutes</th>
+      <th>Complete?</th>
+      <th class="w-100 p-3"></th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +18,7 @@
       <td><%= total_time(task.assigns) %></td>
       <td><%= task.completed %></td>
 
-      <td>
+      <td class="w-100 p-3">
         <%= link "Show", to: Routes.task_path(@conn, :show, task),
             class: "btn btn-secondary"%>
         <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
