@@ -10,6 +10,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :task_manager, TaskManagerWeb.Endpoint,
+  server: true,
+  root: ".",
+  version: Application.spec(:phoenix_distillery, :vsn),
   http: [:inet6, port: System.get_env("PORT") || 4000],
   url: [host: "tasks1.antarticuno.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
@@ -81,6 +84,12 @@ get_secret = fn name ->
   String.trim(File.read!(path))
 end
 
-secret_key_base: get_secret.("key_base");
-password: get_secret.("db_pass");
+config :task_manager, TaskManagerWeb.Endpoint,
+  secret_key_base: get_secret.("key_base");
+
+config :task_manager, TaskManager.Repo,
+  username: "task_manager",
+  password: get_secret.("db_pass"),
+  database: "task_manager_prod",
+  pool_size: 15
 
