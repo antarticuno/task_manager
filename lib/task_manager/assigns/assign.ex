@@ -13,7 +13,8 @@ defmodule TaskManager.Assigns.Assign do
 
   @doc false
   def changeset(assign, attrs) do
-    ts = Map.fetch!(assign, :time_spent)
+    ts = Map.fetch!(assign, :time_spent) || 0
+    assign = Map.put(assign, :time_spent, ts)
     if (rem(ts, 15) == 0) do
       assign
       |> cast(attrs, [:time_spent, :taskmaster_id, :task_id])

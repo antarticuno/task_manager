@@ -21,7 +21,7 @@
       <td class="w-100 p-3">
         <%= link "More", to: Routes.task_path(@conn, :show, task),
             class: "btn btn-secondary"%>
-        <%= link "Assign", to: Routes.assign_path(@conn, :create),
+        <%= link "Assign", to: Routes.assign_path(@conn, :new),
             class: "btn btn-info" %>
         <%= link "Delete", to: Routes.task_path(@conn, :delete, task), 
             method: :delete, data: [confirm: "Are you sure?"],
