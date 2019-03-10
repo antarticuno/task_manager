@@ -14,7 +14,7 @@
 
       <td><%= assign.task.title %></td>
       <td><%= assign.time_spent %></td>
-      <td><%= assign.user.name %></td>
+      <td><%= assign.user_assignee.name %></td>
 
       <td>
         <%= link "Show", to: Routes.assign_path(@conn, :show, assign), class: "btn btn-secondary" %>

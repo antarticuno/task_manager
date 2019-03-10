@@ -40,7 +40,7 @@ defmodule TaskManager.Users do
   def get_user(id) do
     Repo.one from u in User,
       where: u.id == ^id,
-      preload: [assigns: :task]
+      preload: [assigns_assignee: :task]
   end
 
   def get_user_by_email(email) do

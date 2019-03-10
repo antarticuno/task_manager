@@ -19,13 +19,13 @@ defmodule TaskManager.Assigns do
   """
   def list_assigns do
     Repo.all from a in Assign,
-      preload: [:user, :task]
+      preload: [:user_assignee, :task]
   end
 
   def list_assigns_for_user(uid) do
     Repo.all from a in Assign,
       where: a.taskmaster_id == ^uid,
-      preload: [:user, :task]
+      preload: [:user_assignee, :task]
   end
 
   @doc """

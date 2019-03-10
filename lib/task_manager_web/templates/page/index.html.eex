@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= for assign <- @assigns do %>
+        <%= for assign <- @assigns_assignee do %>
           <%= if !assign.task.completed do %>
           <tr>
 

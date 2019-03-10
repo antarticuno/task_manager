@@ -19,7 +19,7 @@ defmodule TaskManager.Tasks do
   """
   def list_tasks do
     Repo.all from t in Task,
-      preload: [assigns: :user]
+      preload: [assigns: :user_assignee]
   end
 
   @doc """

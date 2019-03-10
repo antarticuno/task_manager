@@ -4,9 +4,9 @@ defmodule TaskManagerWeb.TaskView do
   def assigned_users([]), do: "none"
   def assigned_users(assigns_list) do
     if (length(assigns_list) > 1) do
-      Enum.fetch!(assigns_list, 0).user.name <> " +#{(length(assigns_list) - 1)}"
+      Enum.fetch!(assigns_list, 0).user_assignee.name <> " +#{(length(assigns_list) - 1)}"
     else
-      Enum.fetch!(assigns_list, 0).user.name
+      Enum.fetch!(assigns_list, 0).user_assignee.name
     end
   end
 
