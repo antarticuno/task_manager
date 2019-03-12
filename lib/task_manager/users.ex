@@ -21,6 +21,11 @@ defmodule TaskManager.Users do
     Repo.all(User)
   end
 
+  def list_managers do
+    Repo.all from u in User,
+      where: is_nil u.manager_id
+  end
+
   @doc """
   Gets a single user.
 
@@ -41,6 +46,16 @@ defmodule TaskManager.Users do
     Repo.one from u in User,
       where: u.id == ^id,
       preload: [assigns_assignee: :task]
+  end
+
+  def get_manager_name(mid) do
+    u = get_user(mid) || %{name: "N/A"}
+    u.name
+  end
+
+  def get_manager_employees(mid) do
+    Repo.all from u in User,
+      where: u.manager_id == ^mid
   end
 
   def get_user_by_email(email) do

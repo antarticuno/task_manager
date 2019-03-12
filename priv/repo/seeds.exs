@@ -10,7 +10,6 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-import Ecto.Query, only: [from: 2]
 alias TaskManager.Repo
 alias TaskManager.Users.User
 alias TaskManager.Tasks.Task

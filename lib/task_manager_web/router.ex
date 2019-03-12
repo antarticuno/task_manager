@@ -22,6 +22,7 @@ defmodule TaskManagerWeb.Router do
     resources "/tasks", TaskController
     resources "/assigns", AssignController
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
+    resources "/time_blocks", TimeBlockController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.

@@ -18,7 +18,7 @@ defmodule TaskManager.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :name])
+    |> cast(attrs, [:email, :name, :manager_id])
     |> validate_required([:email, :name])
     |> foreign_key_constraint(:manager_id)
   end

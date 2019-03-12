@@ -2,6 +2,44 @@
   <h1>(Slightly) Worse Todo List</h1>
   <%= if @current_user do %>
     <div class="container">
+    <div class="row">
+    <div class="col-6">
+      <h3>Manager: <%= elem(@manager, 0) %> </h3>
+      <h8>Employees:</h8>
+      <ul>
+      <%= for employee <- elem(@manager, 1) do %>
+        <li><%= employee.name %></li>
+      <% end %>
+      </ul>
+    </div>
+    
+    <div class="col-6">
+    <%= if length(elem(@manager, 2)) != 0 do %>
+    <h3>Assigned Tasks</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Employee</th>
+          <th>Task</th>
+          <th>Time spent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for assign <- elem(@manager, 2) do %>
+          <%= if !assign.task.completed do %>
+            <tr>
+              <td><%= assign.user_assignee.name %></td>
+              <td><%= assign.task.title %></td>
+              <td><%= assign.time_spent %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+    </div>
+    </div>
+    
     <h3>My Tasks</h3>
 
     <table class="table table-striped">
@@ -15,7 +53,6 @@
         <%= for assign <- @assigns_assignee do %>
           <%= if !assign.task.completed do %>
           <tr>
-
             <td><%= assign.task.title %></td>
             <td><%= assign.time_spent %></td>
 
@@ -35,8 +72,9 @@
         <%= link "Assign a Task", to: Routes.assign_path(@conn, :new), class: "btn btn-dark" %>
       </span>
     </div>
-  <%= else %>
+  <% else %>
     <%= link "Get Started!", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
+    <button onClick="console.log(new Date($.now()))">Get The Time</button>
   <% end %>
 </div>
 

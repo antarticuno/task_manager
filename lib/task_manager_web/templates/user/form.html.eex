@@ -14,6 +14,11 @@
   <%= text_input f, :name, class: "form-control" %>
   <%= error_tag f, :name %>
 
+  <%= label f, :manager_id %>
+  <%= select f, :manager_id, Enum.map(@managers, &({&1.name, &1.id})), class: "form-control" %>
+  <%= error_tag f, :manager_id %>
+
+
   <div>
     <%= submit "Register", class: "btn btn-primary" %>
   </div>

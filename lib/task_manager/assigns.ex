@@ -28,6 +28,12 @@ defmodule TaskManager.Assigns do
       preload: [:user_assignee, :task]
   end
 
+  def list_assigns_for_manager(mid) do
+    Repo.all from a in Assign,
+      where: a.assigner_id == ^mid,
+      preload: [:user_assignee, :task, :user_assigner]
+  end
+
   @doc """
   Gets a single assign.
 
@@ -47,7 +53,7 @@ defmodule TaskManager.Assigns do
   def get_assign(id) do
     Repo.one from a in Assign,
       where: a.id == ^id,
-      preload: [:user, :task]
+      preload: [:user_assignee, :task, :user_assigner]
   end
 
   @doc """
