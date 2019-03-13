@@ -13,6 +13,7 @@ defmodule TaskManagerWeb.TimeBlockController do
 
   def create(conn, %{"time_block" => time_block_params}) do
     with {:ok, %TimeBlock{} = time_block} <- TimeBlocks.create_time_block(time_block_params) do
+      IO.inspect(time_block_params)
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.time_block_path(conn, :show, time_block))

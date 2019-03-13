@@ -14,6 +14,13 @@ defmodule TaskManagerWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :ajax do
+    plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug TaskManagerWeb.Plugs.FetchSession
+  end
+
   scope "/", TaskManagerWeb do
     pipe_through :browser
 
@@ -22,6 +29,9 @@ defmodule TaskManagerWeb.Router do
     resources "/tasks", TaskController
     resources "/assigns", AssignController
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
+  end
+
+  scope "/ajax/", TaskManagerWeb do
     resources "/time_blocks", TimeBlockController, except: [:new, :edit]
   end
 

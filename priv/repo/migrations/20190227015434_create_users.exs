@@ -11,8 +11,6 @@ defmodule TaskManager.Repo.Migrations.CreateUsers do
     end
 
     create unique_index(:users, [:email])
-    # create index(:assigns, [:taskmaster_id])
-    # create index(:assigns, [:assigner_id])
 
   end
 end

@@ -74,7 +74,6 @@
     </div>
   <% else %>
     <%= link "Get Started!", to: Routes.user_path(@conn, :new), class: "btn btn-primary" %>
-    <button onClick="console.log(new Date($.now()))">Get The Time</button>
   <% end %>
 </div>
 

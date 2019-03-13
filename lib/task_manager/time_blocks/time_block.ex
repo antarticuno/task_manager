@@ -6,7 +6,7 @@ defmodule TaskManager.TimeBlocks.TimeBlock do
   schema "time_blocks" do
     field :end_time, :utc_datetime
     field :start_time, :utc_datetime
-    field :assign_id, :id
+    belongs_to :assign, TaskManager.Assigns.Assign
 
     timestamps()
   end
@@ -14,7 +14,7 @@ defmodule TaskManager.TimeBlocks.TimeBlock do
   @doc false
   def changeset(time_block, attrs) do
     time_block
-    |> cast(attrs, [:start_time, :end_time])
-    |> validate_required([:start_time, :end_time])
+    |> cast(attrs, [:start_time, :end_time, :assign_id])
+    |> validate_required([:start_time, :assign_id])
   end
 end

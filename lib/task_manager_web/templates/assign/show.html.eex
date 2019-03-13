@@ -1,16 +1,48 @@
-<h1>Show Assign</h1>
+<h1>Assignment Details</h1>
 
 <ul>
   <li>
-    <strong>Task Id:</strong>
-    <%= @assign.task_id %>
+    <strong>Task:</strong>
+    <%= @assign.task.title %>
   </li>
   <li>
-    <strong>Time spent:</strong>
-    <%= @assign.time_spent %>
+    <strong>Time Spent:</strong>
+    <%= total_time(@timeblocks) %> minutes 
   </li>
-
 </ul>
 
 <span><%= link "Edit", to: Routes.assign_path(@conn, :edit, @assign) %></span>
 <span><%= link "Back", to: Routes.assign_path(@conn, :index) %></span>
+<div id="timeblock-table">
+   <table class="table table-striped">
+     <thead>
+       <tr>
+         <th>Task</th>
+         <th>Start Time</th>
+         <th>End Time</th>
+       </tr>
+     </thead>
+     <tbody>
+       <%= for timeblock <- @timeblocks do %>
+         <tr>
+           <td><%= @assign.task.title %> (<%= timeblock.id %>)</td>
+           <td><%= timeblock.start_time %></td>
+           <td>
+             <%= timeblock.end_time %>
+             <br />
+             <input type="date" id="date-<%=timeblock.id %>" /><input type="time" id="time-<%= timeblock.id %>" />
+           </td>
+           <td>
+             <button data-time-block-id=<%= timeblock.id %> class="edit-time-block btn btn-primary">Save</button>
+             <button data-time-block-id=<%= timeblock.id %> class="delete-time-block btn btn-secondary">Delete</button>
+           </td>
+         </tr>
+       <% end %>
+     </tbody>
+   </table>
+<p id="time-block-text">
+  <button id="time-button" class="btn btn-success" data-assign-id=<%= @assign.id %>>
+    Start Working
+  </button>
+</p>
+</div>

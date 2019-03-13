@@ -3,6 +3,8 @@ defmodule TaskManagerWeb.AssignController do
 
   alias TaskManager.Assigns
   alias TaskManager.Assigns.Assign
+  alias TaskManager.TimeBlocks
+  alias TaskManager.TimeBlocks.TimeBlock
 
   def index(conn, _params) do
     assigns = Assigns.list_assigns()
@@ -30,7 +32,9 @@ defmodule TaskManagerWeb.AssignController do
 
   def show(conn, %{"id" => id}) do
     assign = Assigns.get_assign(id)
-    render(conn, "show.html", assign: assign)
+    timeblocks = TimeBlocks.list_time_blocks_for_assign(id)
+    # timeblocks = TimeBlocks.list_time_blocks
+    render(conn, "show.html", assign: assign, timeblocks: timeblocks)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -9,6 +9,7 @@ defmodule TaskManager.Assigns.Assign do
     belongs_to :user_assigner, TaskManager.Users.User, foreign_key: :assigner_id
     belongs_to :task, TaskManager.Tasks.Task
 
+    has_many :time_block, TaskManager.TimeBlocks.TimeBlock
     timestamps()
   end
 
