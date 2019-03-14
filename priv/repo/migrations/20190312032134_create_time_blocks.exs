@@ -1,4 +1,4 @@
-defmodule TaskManager.Repo.Migrations.CreateTimeBlocks do
+defmodule TaskManager2.Repo.Migrations.CreateTimeBlocks do
   use Ecto.Migration
 
   def change do

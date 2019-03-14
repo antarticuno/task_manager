@@ -1,6 +1,6 @@
-defmodule TaskManagerWeb.TimeBlockView do
-  use TaskManagerWeb, :view
-  alias TaskManagerWeb.TimeBlockView
+defmodule TaskManager2Web.TimeBlockView do
+  use TaskManager2Web, :view
+  alias TaskManager2Web.TimeBlockView
 
   def render("index.json", %{time_blocks: time_blocks}) do
     %{data: render_many(time_blocks, TimeBlockView, "time_block.json")}

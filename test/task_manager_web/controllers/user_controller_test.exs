@@ -1,7 +1,7 @@
-defmodule TaskManagerWeb.UserControllerTest do
-  use TaskManagerWeb.ConnCase
+defmodule TaskManager2Web.UserControllerTest do
+  use TaskManager2Web.ConnCase
 
-  alias TaskManager.Users
+  alias TaskManager2.Users
 
   @create_attrs %{name: "some name", username: "some username"}
   @update_attrs %{name: "some updated name", username: "some updated username"}

@@ -1,4 +1,4 @@
-defmodule TaskManager.MixProject do
+defmodule TaskManager2.MixProject do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule TaskManager.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {TaskManager.Application, []},
+      mod: {TaskManager2.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

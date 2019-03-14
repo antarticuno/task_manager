@@ -1,8 +1,8 @@
-defmodule TaskManagerWeb.UserSocket do
+defmodule TaskManager2Web.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", TaskManagerWeb.RoomChannel
+  # channel "room:*", TaskManager2Web.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -26,7 +26,7 @@ defmodule TaskManagerWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     TaskManagerWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     TaskManager2Web.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

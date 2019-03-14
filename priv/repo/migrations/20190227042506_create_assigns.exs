@@ -1,4 +1,4 @@
-defmodule TaskManager.Repo.Migrations.CreateAssigns do
+defmodule TaskManager2.Repo.Migrations.CreateAssigns do
   use Ecto.Migration
 
   def change do

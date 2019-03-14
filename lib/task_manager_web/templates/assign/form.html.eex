@@ -1,4 +1,4 @@
-<%= if @current_user && TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+<%= if @current_user && TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">

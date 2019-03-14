@@ -12,7 +12,7 @@
   </li>
 </ul>
 
-<%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+<%= if TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
 <span><%= link "Edit", to: Routes.assign_path(@conn, :edit, @assign) %></span>
 <% end %>
 <div id="timeblock-table">

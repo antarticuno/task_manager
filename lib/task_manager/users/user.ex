@@ -1,4 +1,4 @@
-defmodule TaskManager.Users.User do
+defmodule TaskManager2.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -6,13 +6,13 @@ defmodule TaskManager.Users.User do
   schema "users" do
     field :name, :string
     field :email, :string
-    belongs_to :user, TaskManager.Users.User, foreign_key: :manager_id
+    belongs_to :user, TaskManager2.Users.User, foreign_key: :manager_id
 
     timestamps()
 
 # TODO make sure this works
-    has_many :assigns_assignee, TaskManager.Assigns.Assign, foreign_key: :taskmaster_id
-    has_many :assigns_assigner, TaskManager.Assigns.Assign, foreign_key: :assigner_id
+    has_many :assigns_assignee, TaskManager2.Assigns.Assign, foreign_key: :taskmaster_id
+    has_many :assigns_assigner, TaskManager2.Assigns.Assign, foreign_key: :assigner_id
   end
 
   @doc false

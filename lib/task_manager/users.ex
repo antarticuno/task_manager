@@ -1,12 +1,12 @@
-defmodule TaskManager.Users do
+defmodule TaskManager2.Users do
   @moduledoc """
   The Users context.
   """
 
   import Ecto.Query, warn: false
-  alias TaskManager.Repo
+  alias TaskManager2.Repo
 
-  alias TaskManager.Users.User
+  alias TaskManager2.Users.User
 
   @doc """
   Returns the list of users.

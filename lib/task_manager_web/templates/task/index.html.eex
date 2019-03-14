@@ -22,12 +22,12 @@
       <%= if @current_user do %>
       <td class="w-100 p-3">
         <%= if !task.completed &&
-            (TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) ||
+            (TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) ||
             assigned?(Plug.Conn.get_session(@conn, :user_id), task.assigns)) do %> 
           <%= link "Complete", to: Routes.task_path(@conn, :edit, task),
               class: "btn btn-secondary"%>
         <% end %>
-        <%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+        <%= if TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
           <%= link "Assign", to: Routes.assign_path(@conn, :new),
               class: "btn btn-info" %>
           <%= link "Delete", to: Routes.task_path(@conn, :delete, task), 

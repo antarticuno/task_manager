@@ -1,4 +1,4 @@
-defmodule TaskManager.TimeBlocks.TimeBlock do
+defmodule TaskManager2.TimeBlocks.TimeBlock do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -6,8 +6,8 @@ defmodule TaskManager.TimeBlocks.TimeBlock do
   schema "time_blocks" do
     field :end_time, :utc_datetime
     field :start_time, :utc_datetime
-    belongs_to :assign, TaskManager.Assigns.Assign
-    belongs_to :user, TaskManager.Users.User
+    belongs_to :assign, TaskManager2.Assigns.Assign
+    belongs_to :user, TaskManager2.Users.User
 
     timestamps()
   end

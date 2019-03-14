@@ -1,7 +1,7 @@
-defmodule TaskManagerWeb.TaskView do
-  use TaskManagerWeb, :view
+defmodule TaskManager2Web.TaskView do
+  use TaskManager2Web, :view
 
-  alias TaskManagerWeb.AssignView
+  alias TaskManager2Web.AssignView
 
   def assigned_users([]), do: "none"
   def assigned_users(assigns_list) do

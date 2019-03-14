@@ -13,17 +13,17 @@
     <%= if !assign.task.completed do %>
     <tr>
       <td><%= assign.task.title %></td>
-      <td><%= TaskManagerWeb.AssignView.total_time(@time_blocks, assign.id) %></td>
+      <td><%= TaskManager2Web.AssignView.total_time(@time_blocks, assign.id) %></td>
       <td><%= assign.user_assignee.name %></td>
 
       <td>
         <%= if @current_user do %>
-          <%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) ||
+          <%= if TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) ||
               assign.taskmaster_id == Plug.Conn.get_session(@conn, :user_id)
           do %>
           <%= link "Log Time", to: Routes.assign_path(@conn, :show, assign), class: "btn btn-secondary" %>
           <% end %>
-          <%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+          <%= if TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
             <%= link "Edit", to: Routes.assign_path(@conn, :edit, assign), class: "btn btn-info" %>
             <%= link "Delete", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
           <% end %>
@@ -35,6 +35,6 @@
   </tbody>
 </table>
 
-<%= if @current_user && TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+<%= if @current_user && TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
   <span><%= link "New Assignment", to: Routes.assign_path(@conn, :new) %></span>
 <% end %>

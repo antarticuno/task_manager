@@ -1,4 +1,4 @@
-# TaskManager
+# TaskManager2
 
 To start your Phoenix server:
 

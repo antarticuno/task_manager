@@ -1,7 +1,7 @@
-defmodule TaskManagerWeb.TaskControllerTest do
-  use TaskManagerWeb.ConnCase
+defmodule TaskManager2Web.TaskControllerTest do
+  use TaskManager2Web.ConnCase
 
-  alias TaskManager.Tasks
+  alias TaskManager2.Tasks
 
   @create_attrs %{completed: true, description: "some description", title: "some title"}
   @update_attrs %{completed: false, description: "some updated description", title: "some updated title"}

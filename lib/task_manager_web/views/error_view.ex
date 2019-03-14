@@ -1,5 +1,5 @@
-defmodule TaskManagerWeb.ErrorView do
-  use TaskManagerWeb, :view
+defmodule TaskManager2Web.ErrorView do
+  use TaskManager2Web, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

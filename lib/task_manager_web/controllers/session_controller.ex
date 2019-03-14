@@ -1,8 +1,8 @@
-defmodule TaskManagerWeb.SessionController do
-  use TaskManagerWeb, :controller
+defmodule TaskManager2Web.SessionController do
+  use TaskManager2Web, :controller
 
   def create(conn, %{"email" => email}) do
-    user = TaskManager.Users.get_user_by_email(email)
+    user = TaskManager2.Users.get_user_by_email(email)
     if user do
       conn
       |> put_session(:user_id, user.id)

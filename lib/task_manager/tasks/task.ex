@@ -1,4 +1,4 @@
-defmodule TaskManager.Tasks.Task do
+defmodule TaskManager2.Tasks.Task do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -10,7 +10,7 @@ defmodule TaskManager.Tasks.Task do
 
     timestamps()
 
-    has_many :assigns, TaskManager.Assigns.Assign
+    has_many :assigns, TaskManager2.Assigns.Assign
   end
 
   @doc false

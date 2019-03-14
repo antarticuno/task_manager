@@ -1,12 +1,12 @@
-defmodule TaskManager.Tasks do
+defmodule TaskManager2.Tasks do
   @moduledoc """
   The Tasks context.
   """
 
   import Ecto.Query, warn: false
-  alias TaskManager.Repo
+  alias TaskManager2.Repo
 
-  alias TaskManager.Tasks.Task
+  alias TaskManager2.Tasks.Task
 
   @doc """
   Returns the list of tasks.

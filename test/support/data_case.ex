@@ -1,4 +1,4 @@
-defmodule TaskManager.DataCase do
+defmodule TaskManager2.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule TaskManager.DataCase do
 
   using do
     quote do
-      alias TaskManager.Repo
+      alias TaskManager2.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import TaskManager.DataCase
+      import TaskManager2.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TaskManager.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TaskManager2.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(TaskManager.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(TaskManager2.Repo, {:shared, self()})
     end
 
     :ok

@@ -1,10 +1,10 @@
-defmodule TaskManager.TasksTest do
-  use TaskManager.DataCase
+defmodule TaskManager2.TasksTest do
+  use TaskManager2.DataCase
 
-  alias TaskManager.Tasks
+  alias TaskManager2.Tasks
 
   describe "tasks" do
-    alias TaskManager.Tasks.Task
+    alias TaskManager2.Tasks.Task
 
     @valid_attrs %{completed: true, description: "some description", title: "some title"}
     @update_attrs %{completed: false, description: "some updated description", title: "some updated title"}

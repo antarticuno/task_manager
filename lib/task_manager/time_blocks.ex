@@ -1,12 +1,12 @@
-defmodule TaskManager.TimeBlocks do
+defmodule TaskManager2.TimeBlocks do
   @moduledoc """
   The TimeBlocks context.
   """
 
   import Ecto.Query, warn: false
-  alias TaskManager.Repo
+  alias TaskManager2.Repo
 
-  alias TaskManager.TimeBlocks.TimeBlock
+  alias TaskManager2.TimeBlocks.TimeBlock
 
   @doc """
   Returns the list of time_blocks.

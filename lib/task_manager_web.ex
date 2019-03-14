@@ -1,12 +1,12 @@
-defmodule TaskManagerWeb do
+defmodule TaskManager2Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use TaskManagerWeb, :controller
-      use TaskManagerWeb, :view
+      use TaskManager2Web, :controller
+      use TaskManager2Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule TaskManagerWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: TaskManagerWeb
+      use Phoenix.Controller, namespace: TaskManager2Web
 
       import Plug.Conn
-      import TaskManagerWeb.Gettext
-      alias TaskManagerWeb.Router.Helpers, as: Routes
+      import TaskManager2Web.Gettext
+      alias TaskManager2Web.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule TaskManagerWeb do
     quote do
       use Phoenix.View,
         root: "lib/task_manager_web/templates",
-        namespace: TaskManagerWeb
+        namespace: TaskManager2Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -39,9 +39,9 @@ defmodule TaskManagerWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import TaskManagerWeb.ErrorHelpers
-      import TaskManagerWeb.Gettext
-      alias TaskManagerWeb.Router.Helpers, as: Routes
+      import TaskManager2Web.ErrorHelpers
+      import TaskManager2Web.Gettext
+      alias TaskManager2Web.Router.Helpers, as: Routes
     end
   end
 
@@ -56,7 +56,7 @@ defmodule TaskManagerWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import TaskManagerWeb.Gettext
+      import TaskManager2Web.Gettext
     end
   end
 

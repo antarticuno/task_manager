@@ -1,7 +1,7 @@
-defmodule TaskManagerWeb.Endpoint do
+defmodule TaskManager2Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :task_manager
 
-  socket "/socket", TaskManagerWeb.UserSocket,
+  socket "/socket", TaskManager2Web.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -42,5 +42,5 @@ defmodule TaskManagerWeb.Endpoint do
     key: "_task_manager_key",
     signing_salt: "fYj/mNzx"
 
-  plug TaskManagerWeb.Router
+  plug TaskManager2Web.Router
 end

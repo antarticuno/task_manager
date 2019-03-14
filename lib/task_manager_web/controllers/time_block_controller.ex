@@ -1,10 +1,10 @@
-defmodule TaskManagerWeb.TimeBlockController do
-  use TaskManagerWeb, :controller
+defmodule TaskManager2Web.TimeBlockController do
+  use TaskManager2Web, :controller
 
-  alias TaskManager.TimeBlocks
-  alias TaskManager.TimeBlocks.TimeBlock
+  alias TaskManager2.TimeBlocks
+  alias TaskManager2.TimeBlocks.TimeBlock
 
-  action_fallback TaskManagerWeb.FallbackController
+  action_fallback TaskManager2Web.FallbackController
 
   def index(conn, _params) do
     time_blocks = TimeBlocks.list_time_blocks()

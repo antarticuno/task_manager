@@ -1,4 +1,4 @@
-defmodule TaskManager.Application do
+defmodule TaskManager2.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,23 +9,23 @@ defmodule TaskManager.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      TaskManager.Repo,
+      TaskManager2.Repo,
       # Start the endpoint when the application starts
-      TaskManagerWeb.Endpoint
-      # Starts a worker by calling: TaskManager.Worker.start_link(arg)
-      # {TaskManager.Worker, arg},
+      TaskManager2Web.Endpoint
+      # Starts a worker by calling: TaskManager2.Worker.start_link(arg)
+      # {TaskManager2.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: TaskManager.Supervisor]
+    opts = [strategy: :one_for_one, name: TaskManager2.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    TaskManagerWeb.Endpoint.config_change(changed, removed)
+    TaskManager2Web.Endpoint.config_change(changed, removed)
     :ok
   end
 end

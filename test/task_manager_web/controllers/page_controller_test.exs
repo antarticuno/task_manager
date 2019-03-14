@@ -1,5 +1,5 @@
-defmodule TaskManagerWeb.PageControllerTest do
-  use TaskManagerWeb.ConnCase
+defmodule TaskManager2Web.PageControllerTest do
+  use TaskManager2Web.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

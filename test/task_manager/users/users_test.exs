@@ -1,10 +1,10 @@
-defmodule TaskManager.UsersTest do
-  use TaskManager.DataCase
+defmodule TaskManager2.UsersTest do
+  use TaskManager2.DataCase
 
-  alias TaskManager.Users
+  alias TaskManager2.Users
 
   describe "users" do
-    alias TaskManager.Users.User
+    alias TaskManager2.Users.User
 
     @valid_attrs %{name: "some name", username: "some username"}
     @update_attrs %{name: "some updated name", username: "some updated username"}

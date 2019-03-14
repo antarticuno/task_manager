@@ -1,10 +1,10 @@
-defmodule TaskManager.AssignsTest do
-  use TaskManager.DataCase
+defmodule TaskManager2.AssignsTest do
+  use TaskManager2.DataCase
 
-  alias TaskManager.Assigns
+  alias TaskManager2.Assigns
 
   describe "assigns" do
-    alias TaskManager.Assigns.Assign
+    alias TaskManager2.Assigns.Assign
 
     @valid_attrs %{time_spent: 42}
     @update_attrs %{time_spent: 43}

@@ -1,6 +1,6 @@
-defmodule TaskManager do
+defmodule TaskManager2 do
   @moduledoc """
-  TaskManager keeps the contexts that define your domain
+  TaskManager2 keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

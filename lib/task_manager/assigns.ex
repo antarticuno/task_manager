@@ -1,12 +1,12 @@
-defmodule TaskManager.Assigns do
+defmodule TaskManager2.Assigns do
   @moduledoc """
   The Assigns context.
   """
 
   import Ecto.Query, warn: false
-  alias TaskManager.Repo
+  alias TaskManager2.Repo
 
-  alias TaskManager.Assigns.Assign
+  alias TaskManager2.Assigns.Assign
 
   @doc """
   Returns the list of assigns.
@@ -59,7 +59,7 @@ defmodule TaskManager.Assigns do
   defp validate_manager_assigned(attrs) do
     taskmaster_id = attrs["taskmaster_id"]
     assigner_id = attrs["assigner_id"]
-    taskmaster = TaskManager.Users.get_user(taskmaster_id)
+    taskmaster = TaskManager2.Users.get_user(taskmaster_id)
     taskmaster.manager_id == assigner_id || (is_nil(taskmaster.manager_id) && taskmaster_id == assigner_id)
   end
 

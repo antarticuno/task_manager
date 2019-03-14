@@ -1,9 +1,9 @@
-defmodule TaskManagerWeb.UserController do
-  use TaskManagerWeb, :controller
+defmodule TaskManager2Web.UserController do
+  use TaskManager2Web, :controller
 
-  alias TaskManager.Users
-  alias TaskManager.Users.User
-  alias TaskManager.Assigns
+  alias TaskManager2.Users
+  alias TaskManager2.Users.User
+  alias TaskManager2.Assigns
 
   def index(conn, _params) do
     users = Users.list_users()

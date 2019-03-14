@@ -1,10 +1,10 @@
-defmodule TaskManager.TimeBlocksTest do
-  use TaskManager.DataCase
+defmodule TaskManager2.TimeBlocksTest do
+  use TaskManager2.DataCase
 
-  alias TaskManager.TimeBlocks
+  alias TaskManager2.TimeBlocks
 
   describe "time_blocks" do
-    alias TaskManager.TimeBlocks.TimeBlock
+    alias TaskManager2.TimeBlocks.TimeBlock
 
     @valid_attrs %{end_time: "2010-04-17T14:00:00Z", start_time: "2010-04-17T14:00:00Z"}
     @update_attrs %{end_time: "2011-05-18T15:01:01Z", start_time: "2011-05-18T15:01:01Z"}

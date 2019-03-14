@@ -1,12 +1,12 @@
-defmodule TaskManagerWeb.TaskController do
-  use TaskManagerWeb, :controller
+defmodule TaskManager2Web.TaskController do
+  use TaskManager2Web, :controller
 
-  alias TaskManager.Tasks
-  alias TaskManager.Tasks.Task
+  alias TaskManager2.Tasks
+  alias TaskManager2.Tasks.Task
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()
-    time_blocks = TaskManager.TimeBlocks.list_time_blocks()
+    time_blocks = TaskManager2.TimeBlocks.list_time_blocks()
     render(conn, "index.html", tasks: tasks, time_blocks: time_blocks)
   end
 
@@ -30,7 +30,7 @@ defmodule TaskManagerWeb.TaskController do
   def show(conn, %{"id" => id}) do
     task = Tasks.get_task!(id)
     user_id = get_session(conn, :user_id)
-    assign_cset = TaskManager.Assigns.change_assign(%TaskManager.Assigns.Assign{
+    assign_cset = TaskManager2.Assigns.change_assign(%TaskManager2.Assigns.Assign{
       taskmaster_id: user_id, task_id: task.id})
     render(conn, "show.html", task: task, assign_cset: assign_cset)
   end

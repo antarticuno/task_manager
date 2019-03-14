@@ -1,4 +1,4 @@
-defmodule TaskManagerWeb.ChannelCase do
+defmodule TaskManager2Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule TaskManagerWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint TaskManagerWeb.Endpoint
+      @endpoint TaskManager2Web.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TaskManager.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(TaskManager2.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(TaskManager.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(TaskManager2.Repo, {:shared, self()})
     end
 
     :ok

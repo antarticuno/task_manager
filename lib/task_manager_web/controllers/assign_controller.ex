@@ -1,10 +1,10 @@
-defmodule TaskManagerWeb.AssignController do
-  use TaskManagerWeb, :controller
+defmodule TaskManager2Web.AssignController do
+  use TaskManager2Web, :controller
 
-  alias TaskManager.Assigns
-  alias TaskManager.Assigns.Assign
-  alias TaskManager.TimeBlocks
-  alias TaskManager.TimeBlocks.TimeBlock
+  alias TaskManager2.Assigns
+  alias TaskManager2.Assigns.Assign
+  alias TaskManager2.TimeBlocks
+  alias TaskManager2.TimeBlocks.TimeBlock
 
   def index(conn, _params) do
     assigns = Assigns.list_assigns()
@@ -13,9 +13,9 @@ defmodule TaskManagerWeb.AssignController do
   end
 
   def new(conn, _params) do
-    users = TaskManager.Users.list_users_organization(get_session(conn, :user_id))
+    users = TaskManager2.Users.list_users_organization(get_session(conn, :user_id))
     changeset = Assigns.change_assign(%Assign{})
-    tasks = TaskManager.Tasks.list_tasks()
+    tasks = TaskManager2.Tasks.list_tasks()
     render(conn, "new.html", changeset: changeset, users: users, tasks: tasks)
   end
 
@@ -40,8 +40,8 @@ defmodule TaskManagerWeb.AssignController do
 
   def edit(conn, %{"id" => id}) do
     assign = Assigns.get_assign(id)
-    users = TaskManager.Users.list_users()
-    tasks = TaskManager.Tasks.list_tasks()
+    users = TaskManager2.Users.list_users()
+    tasks = TaskManager2.Tasks.list_tasks()
     changeset = Assigns.change_assign(assign)
     render(conn, "edit.html", assign: assign, changeset: changeset, users: users, tasks: tasks)
   end

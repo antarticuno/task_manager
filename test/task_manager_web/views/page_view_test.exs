@@ -1,3 +1,3 @@
-defmodule TaskManagerWeb.PageViewTest do
-  use TaskManagerWeb.ConnCase, async: true
+defmodule TaskManager2Web.PageViewTest do
+  use TaskManager2Web.ConnCase, async: true
 end

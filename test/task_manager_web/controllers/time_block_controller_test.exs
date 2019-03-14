@@ -1,8 +1,8 @@
-defmodule TaskManagerWeb.TimeBlockControllerTest do
-  use TaskManagerWeb.ConnCase
+defmodule TaskManager2Web.TimeBlockControllerTest do
+  use TaskManager2Web.ConnCase
 
-  alias TaskManager.TimeBlocks
-  alias TaskManager.TimeBlocks.TimeBlock
+  alias TaskManager2.TimeBlocks
+  alias TaskManager2.TimeBlocks.TimeBlock
 
   @create_attrs %{
     end_time: "2010-04-17T14:00:00Z",

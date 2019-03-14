@@ -1,11 +1,11 @@
-defmodule TaskManagerWeb.Router do
-  use TaskManagerWeb, :router
+defmodule TaskManager2Web.Router do
+  use TaskManager2Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
-    plug TaskManagerWeb.Plugs.FetchSession
+    plug TaskManager2Web.Plugs.FetchSession
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -18,10 +18,10 @@ defmodule TaskManagerWeb.Router do
     plug :accepts, ["json"]
     plug :fetch_session
     plug :fetch_flash
-    plug TaskManagerWeb.Plugs.FetchSession
+    plug TaskManager2Web.Plugs.FetchSession
   end
 
-  scope "/", TaskManagerWeb do
+  scope "/", TaskManager2Web do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -31,12 +31,12 @@ defmodule TaskManagerWeb.Router do
     resources "/sessions", SessionController, only: [:create, :delete], singleton: true
   end
 
-  scope "/ajax/", TaskManagerWeb do
+  scope "/ajax/", TaskManager2Web do
     resources "/time_blocks", TimeBlockController, except: [:new, :edit]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", TaskManagerWeb do
+  # scope "/api", TaskManager2Web do
   #   pipe_through :api
   # end
 end

@@ -5,16 +5,16 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     TaskManager.Repo.insert!(%TaskManager.SomeSchema{})
+#     TaskManager2.Repo.insert!(%TaskManager2.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias TaskManager.Repo
-alias TaskManager.Users.User
-alias TaskManager.Tasks.Task
-alias TaskManager.Assigns.Assign
-alias TaskManager.TimeBlocks.TimeBlock
+alias TaskManager2.Repo
+alias TaskManager2.Users.User
+alias TaskManager2.Tasks.Task
+alias TaskManager2.Assigns.Assign
+alias TaskManager2.TimeBlocks.TimeBlock
 
 Repo.insert!(%User{email: "example1@example.com", name: "Antartikun", manager_id: nil})
 Repo.insert!(%User{email: "example2@example.com", name: "Brenda", manager_id: 1})

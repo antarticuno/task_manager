@@ -1,7 +1,7 @@
-defmodule TaskManagerWeb.AssignControllerTest do
-  use TaskManagerWeb.ConnCase
+defmodule TaskManager2Web.AssignControllerTest do
+  use TaskManager2Web.ConnCase
 
-  alias TaskManager.Assigns
+  alias TaskManager2.Assigns
 
   @create_attrs %{time_spent: 42}
   @update_attrs %{time_spent: 43}

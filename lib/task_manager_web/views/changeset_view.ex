@@ -1,11 +1,11 @@
-defmodule TaskManagerWeb.ChangesetView do
-  use TaskManagerWeb, :view
+defmodule TaskManager2Web.ChangesetView do
+  use TaskManager2Web, :view
 
   @doc """
   Traverses and translates changeset errors.
 
   See `Ecto.Changeset.traverse_errors/2` and
-  `TaskManagerWeb.ErrorHelpers.translate_error/1` for more details.
+  `TaskManager2Web.ErrorHelpers.translate_error/1` for more details.
   """
   def translate_errors(changeset) do
     Ecto.Changeset.traverse_errors(changeset, &translate_error/1)

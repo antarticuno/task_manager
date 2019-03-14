@@ -8,14 +8,14 @@
 use Mix.Config
 
 config :task_manager,
-  ecto_repos: [TaskManager.Repo]
+  ecto_repos: [TaskManager2.Repo]
 
 # Configures the endpoint
-config :task_manager, TaskManagerWeb.Endpoint,
+config :task_manager, TaskManager2Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "SefDfKz9oro2n1gL2P6u1ovoLNcqwqopqv0MGFsGPCeBDxB957haohaBCy++GddO",
-  render_errors: [view: TaskManagerWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: TaskManager.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: TaskManager2Web.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: TaskManager2.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
