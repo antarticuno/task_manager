@@ -82,7 +82,7 @@ end
 # Configure your database
 config :task_manager, TaskManager2.Repo,
   username: "task_manager",
-  password: "",
+  password: "task_manager",
   database: "task_manager_dev",
   hostname: "localhost",
   pool_size: 10

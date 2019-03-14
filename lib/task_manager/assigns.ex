@@ -57,9 +57,9 @@ defmodule TaskManager2.Assigns do
   end
 
   defp validate_manager_assigned(attrs) do
-    taskmaster_id = attrs["taskmaster_id"]
-    assigner_id = attrs["assigner_id"]
-    taskmaster = TaskManager2.Users.get_user(taskmaster_id)
+    {taskmaster_id, _} = Integer.parse(attrs["taskmaster_id"])
+    {assigner_id, _} = Integer.parse(attrs["assigner_id"])
+    taskmaster = TaskManager2.Users.get_user(taskmaster_id) || %TaskManager2.Users.User{manager_id: -1}
     taskmaster.manager_id == assigner_id || (is_nil(taskmaster.manager_id) && taskmaster_id == assigner_id)
   end
 
