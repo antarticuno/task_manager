@@ -12,11 +12,9 @@ mkdir -p priv/static
 
 mix deps.get
 mix compile
-(cd assets && npm install)
 (cd assets && webpack --mode production)
 mix phx.digest
-mix ecto.create
-mix ecto.migrate
+mix ecto.reset
 
 echo "Generating release..."
 mix release
