@@ -2,4 +2,6 @@
 
 <%= render "form.html", Map.put(assigns, :action, Routes.assign_path(@conn, :create)) %>
 
-<span><%= link "Back", to: Routes.assign_path(@conn, :index) %></span>
+<span><%= link "View all Tasks", to: Routes.task_path(@conn, :index) %></span>
+<br />
+<span><%= link "Back to Assignments", to: Routes.assign_path(@conn, :index) %></span>

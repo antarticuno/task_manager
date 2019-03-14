@@ -56,6 +56,13 @@ defmodule TaskManager.Assigns do
       preload: [:user_assignee, :task, :user_assigner]
   end
 
+  defp validate_manager_assigned(attrs) do
+    taskmaster_id = attrs["taskmaster_id"]
+    assigner_id = attrs["assigner_id"]
+    taskmaster = TaskManager.Users.get_user(taskmaster_id)
+    taskmaster.manager_id == assigner_id || (is_nil(taskmaster.manager_id) && taskmaster_id == assigner_id)
+  end
+
   @doc """
   Creates a assign.
 
@@ -69,9 +76,13 @@ defmodule TaskManager.Assigns do
 
   """
   def create_assign(attrs \\ %{}) do
-    %Assign{time_spent: 0}
-    |> Assign.changeset(attrs)
-    |> Repo.insert()
+    if validate_manager_assigned(attrs) do
+      %Assign{}
+      |> Assign.changeset(attrs)
+      |> Repo.insert()
+    else
+      raise ArgumentError, message: "Create: only managers can assign"
+    end
   end
 
   @doc """
@@ -87,9 +98,13 @@ defmodule TaskManager.Assigns do
 
   """
   def update_assign(%Assign{} = assign, attrs) do
-    assign
-    |> Assign.changeset(attrs)
-    |> Repo.update()
+    if validate_manager_assigned(attrs) do
+      assign
+      |> Assign.changeset(attrs)
+      |> Repo.update()
+    else 
+      raise ArgumentError, message: "Update: only managers can assign"
+    end
   end
 
   @doc """

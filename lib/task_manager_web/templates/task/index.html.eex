@@ -4,32 +4,42 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Description</th>
       <th>Assigned?</th>
       <th>Minutes</th>
       <th>Complete?</th>
-      <th class="w-100 p-3"></th>
     </tr>
   </thead>
   <tbody>
 <%= for task <- @tasks do %>
     <tr>
       <td><%= task.title %></td>
+      <td><%= task.description %></td>
       <td><%= assigned_users(task.assigns) %></td>
-      <td><%= total_time(task.assigns) %></td>
+      <td><%= total_task_time(@time_blocks, task.assigns) %></td>
       <td><%= task.completed %></td>
 
+      <%= if @current_user do %>
       <td class="w-100 p-3">
-        <%= link "More", to: Routes.task_path(@conn, :show, task),
-            class: "btn btn-secondary"%>
-        <%= link "Assign", to: Routes.assign_path(@conn, :new),
-            class: "btn btn-info" %>
-        <%= link "Delete", to: Routes.task_path(@conn, :delete, task), 
-            method: :delete, data: [confirm: "Are you sure?"],
-            class: "btn btn-danger" %>
+        <%= if !task.completed &&
+            (TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) ||
+            assigned?(Plug.Conn.get_session(@conn, :user_id), task.assigns)) do %> 
+          <%= link "Complete", to: Routes.task_path(@conn, :edit, task),
+              class: "btn btn-secondary"%>
+        <% end %>
+        <%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+          <%= link "Assign", to: Routes.assign_path(@conn, :new),
+              class: "btn btn-info" %>
+          <%= link "Delete", to: Routes.task_path(@conn, :delete, task), 
+              method: :delete, data: [confirm: "Are you sure?"],
+              class: "btn btn-danger" %>
+        <% end %>
       </td>
+      <% end %>
     </tr>
 <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Task", to: Routes.task_path(@conn, :new), class: 'btn btn-primary' %></span>
+<%= if @current_user do %>
+  <span><%= link "New Task", to: Routes.task_path(@conn, :new), class: 'btn btn-primary' %></span>
+<% end %>

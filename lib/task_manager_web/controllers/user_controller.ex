@@ -3,10 +3,23 @@ defmodule TaskManagerWeb.UserController do
 
   alias TaskManager.Users
   alias TaskManager.Users.User
+  alias TaskManager.Assigns
 
   def index(conn, _params) do
     users = Users.list_users()
     render(conn, "index.html", users: users)
+  end
+
+  def handle_manager(user) do
+    mid = user.manager_id
+    if (mid) do
+      manager_employees = Users.get_manager_employees(mid)
+      {Users.get_manager_name(mid), manager_employees, []}
+    else 
+      manager_employees = Users.get_manager_employees(user.id)
+      employee_tasks = Assigns.list_assigns_for_manager(user.id)
+      {"N/A", manager_employees, employee_tasks}
+    end 
   end
 
   def new(conn, _params) do

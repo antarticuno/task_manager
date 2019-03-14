@@ -8,11 +8,12 @@ defmodule TaskManagerWeb.AssignController do
 
   def index(conn, _params) do
     assigns = Assigns.list_assigns()
-    render(conn, "index.html", assigns: assigns)
+    time_blocks = TimeBlocks.list_time_blocks()
+    render(conn, "index.html", assigns: assigns, time_blocks: time_blocks)
   end
 
   def new(conn, _params) do
-    users = TaskManager.Users.list_users()
+    users = TaskManager.Users.list_users_organization(get_session(conn, :user_id))
     changeset = Assigns.change_assign(%Assign{})
     tasks = TaskManager.Tasks.list_tasks()
     render(conn, "new.html", changeset: changeset, users: users, tasks: tasks)

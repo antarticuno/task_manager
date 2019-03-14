@@ -1,8 +1,9 @@
 defmodule TaskManagerWeb.AssignView do
   use TaskManagerWeb, :view
 
-  def total_time(timeblocks) do
-    Enum.reduce(timeblocks, 0, &(time_difference(&1.start_time, &1.end_time) + &2))/(60)
+  def total_time(timeblocks, assign_id) do
+    Enum.reduce(timeblocks, 0, &(if &1.assign_id == assign_id do time_difference(&1.start_time, &1.end_time) + &2 else &2 end))/(60)
+    |> Float.round(3)
   end
 
   defp time_difference(starttime, endtime) do

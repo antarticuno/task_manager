@@ -24,7 +24,7 @@ defmodule TaskManager.TimeBlocks do
   def list_time_blocks_for_assign(aid) do
     Repo.all from t in TimeBlock,
       where: t.assign_id == ^aid,
-      preload: [:assign]
+      preload: [:assign, :user]
   end
 
   @doc """

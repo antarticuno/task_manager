@@ -21,6 +21,11 @@ defmodule TaskManager.Users do
     Repo.all(User)
   end
 
+  def list_users_organization(mid) do
+    Repo.all from u in User,
+      where: u.manager_id == ^mid or u.id == ^mid
+  end
+
   def list_managers do
     Repo.all from u in User,
       where: is_nil u.manager_id

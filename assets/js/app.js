@@ -79,12 +79,14 @@ function start_working() {
     let start_time = new Date();
     let assign_id = $("#time-button").data('assign-id');
     let end_time = null;
+    let user_id = $('#time-button').data('user-id');
 
     let text = JSON.stringify({
       time_block: {
         assign_id: assign_id,
         end_time: end_time,
         start_time: start_time,
+	user_id: user_id,
       },
     });
 
@@ -105,8 +107,10 @@ function start_working() {
 function stop_working() {
   let end_time = new Date();
   let assign_id = $('#time-button').data('assign-id');
+  let user_id = $('#time-button').data('user-id');
   let text = JSON.stringify({
     time_block: {
+      user_id: user_id,
       assign_id: assign_id,
       end_time: end_time,
     }

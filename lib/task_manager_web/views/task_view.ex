@@ -1,6 +1,8 @@
 defmodule TaskManagerWeb.TaskView do
   use TaskManagerWeb, :view
 
+  alias TaskManagerWeb.AssignView
+
   def assigned_users([]), do: "none"
   def assigned_users(assigns_list) do
     if (length(assigns_list) > 1) do
@@ -10,8 +12,12 @@ defmodule TaskManagerWeb.TaskView do
     end
   end
 
-  def total_time(assigns_list) do
-    Enum.reduce(assigns_list, 0, &(&1.time_spent + &2))
+  def total_task_time(time_blocks, assigns) do
+    Enum.reduce(assigns, 0, &(AssignView.total_time(time_blocks, &1.id) + &2))
+  end
+
+  def assigned?(uid, assigns) do
+    Enum.any?(assigns, &(&1.taskmaster_id == uid))
   end
 
 end

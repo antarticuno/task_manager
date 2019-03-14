@@ -6,7 +6,8 @@ defmodule TaskManagerWeb.TaskController do
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()
-    render(conn, "index.html", tasks: tasks)
+    time_blocks = TaskManager.TimeBlocks.list_time_blocks()
+    render(conn, "index.html", tasks: tasks, time_blocks: time_blocks)
   end
 
   def new(conn, _params) do
@@ -19,7 +20,7 @@ defmodule TaskManagerWeb.TaskController do
       {:ok, task} ->
         conn
         |> put_flash(:info, "Task created successfully.")
-        |> redirect(to: Routes.task_path(conn, :show, task))
+        |> redirect(to: Routes.task_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -30,7 +31,7 @@ defmodule TaskManagerWeb.TaskController do
     task = Tasks.get_task!(id)
     user_id = get_session(conn, :user_id)
     assign_cset = TaskManager.Assigns.change_assign(%TaskManager.Assigns.Assign{
-      taskmaster_id: user_id, task_id: task.id, time_spent: 0})
+      taskmaster_id: user_id, task_id: task.id})
     render(conn, "show.html", task: task, assign_cset: assign_cset)
   end
 
@@ -47,7 +48,7 @@ defmodule TaskManagerWeb.TaskController do
       {:ok, task} ->
         conn
         |> put_flash(:info, "Task updated successfully.")
-        |> redirect(to: Routes.task_path(conn, :show, task))
+        |> redirect(to: Routes.task_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", task: task, changeset: changeset)

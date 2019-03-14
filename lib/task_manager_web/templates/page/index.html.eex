@@ -30,7 +30,7 @@
             <tr>
               <td><%= assign.user_assignee.name %></td>
               <td><%= assign.task.title %></td>
-              <td><%= assign.time_spent %></td>
+              <td><%= TaskManagerWeb.AssignView.total_time(@time_blocks, assign.id) %></td>
             </tr>
           <% end %>
         <% end %>
@@ -54,10 +54,10 @@
           <%= if !assign.task.completed do %>
           <tr>
             <td><%= assign.task.title %></td>
-            <td><%= assign.time_spent %></td>
+            <td><%= TaskManagerWeb.AssignView.total_time(@time_blocks, assign.id) %></td>
 
             <td>
-              <%= link "Log Work", to: Routes.assign_path(@conn, :edit, assign), class: "btn btn-secondary" %>
+              <%= link "Log Work", to: Routes.assign_path(@conn, :show, assign), class: "btn btn-secondary" %>
               <%= link "Edit/Finish", to: Routes.task_path(@conn, :edit, assign.task), class: "btn btn-info" %>
               <%= link "Quit Task", to: Routes.assign_path(@conn, :delete, assign), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger" %>
             </td>
@@ -69,7 +69,9 @@
 
       <span>
         <%= link "Create a Task", to: Routes.task_path(@conn, :new), class: "btn btn-primary" %>
+        <%= if is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
         <%= link "Assign a Task", to: Routes.assign_path(@conn, :new), class: "btn btn-dark" %>
+        <% end %>
       </span>
     </div>
   <% else %>

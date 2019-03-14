@@ -1,3 +1,4 @@
+<%= if @current_user do %>
 <h1>Show Task</h1>
 
 <ul>
@@ -19,20 +20,6 @@
 
 </ul>
 
-<%= if @current_user do %>
-  <div>
-    <%= form_for @assign_cset, Routes.assign_path(@conn,
-        :create, %{taskmaster_id: @current_user.id, task_id: @task.id, time_spent: 0}),
-        [class: "form-inline"], fn f -> %>
-      <%= hidden_input f, :taskmaster_id %>
-      <%= hidden_input f, :task_id %>
-
-      <div>
-        <%= submit "Assign to me", class: "btn btn-dark" %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
 <span><%= link "Edit", to: Routes.task_path(@conn, :edit, @task), class: "btn btn-primary" %></span>
 <span><%= link "Back", to: Routes.task_path(@conn, :index) %></span>
+<% end %>

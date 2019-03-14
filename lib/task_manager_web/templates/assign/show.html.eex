@@ -1,3 +1,4 @@
+<%= if @current_user do %>
 <h1>Assignment Details</h1>
 
 <ul>
@@ -7,12 +8,13 @@
   </li>
   <li>
     <strong>Time Spent:</strong>
-    <%= total_time(@timeblocks) %> minutes 
+    <%= total_time(@timeblocks, @assign.id) %> minutes 
   </li>
 </ul>
 
+<%= if TaskManagerWeb.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
 <span><%= link "Edit", to: Routes.assign_path(@conn, :edit, @assign) %></span>
-<span><%= link "Back", to: Routes.assign_path(@conn, :index) %></span>
+<% end %>
 <div id="timeblock-table">
    <table class="table table-striped">
      <thead>
@@ -40,9 +42,12 @@
        <% end %>
      </tbody>
    </table>
+<%= if @current_user && Plug.Conn.get_session(@conn, :user_id) == @assign.taskmaster_id do %>
 <p id="time-block-text">
-  <button id="time-button" class="btn btn-success" data-assign-id=<%= @assign.id %>>
+  <button id="time-button" class="btn btn-success" data-assign-id=<%= @assign.id%> data-user-id=<%= Plug.Conn.get_session(@conn, :user_id) || -1 %>>
     Start Working
   </button>
 </p>
+<% end %>
 </div>
+<% end %>
