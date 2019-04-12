@@ -15,7 +15,7 @@
   <%= error_tag f, :name %>
 
   <%= label f, :manager_id %>
-  <%= select f, :manager_id, [nil | Enum.map(@managers, &({&1.name, &1.id}))], class: "form-control" %>
+  <%= select f, :manager_id, [{"N/A", nil} | Enum.map(@managers, &({&1.name, &1.id}))], class: "form-control" %>
   <%= error_tag f, :manager_id %>
 
 
