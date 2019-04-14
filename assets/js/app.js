@@ -28,23 +28,28 @@ $(function () {
     let date = $('#date-'+tbid)[0].value;
     let time = $('#time-'+tbid)[0].value;
     let end_time = new Date(date + ' ' + time);
+    let start_time = new Date($('#start-date-'+tbid).text());
     let text = JSON.stringify({
       time_block: {
         assign_id: $("#time-button").data('assign-id'),
         end_time: end_time, 
       },
     });
-    console.log(text);
 
-    $.ajax("/ajax/time_blocks/" + tbid, {
-      method: "put",
-      dataType: "json",
-      contentType: "application/json; charset=UTF-8",
-      data: text,
-      success: (resp) => {
-        location.reload();
-      },
-    });
+    if (end_time <= start_time) {
+      alert("Invalid time blocK: end dates come after starting dates.");
+    }
+    else {
+      $.ajax("/ajax/time_blocks/" + tbid, {
+        method: "put",
+        dataType: "json",
+        contentType: "application/json; charset=UTF-8",
+        data: text,
+        success: (resp) => {
+          location.reload();
+        },
+      });
+    }
 
   });
 });

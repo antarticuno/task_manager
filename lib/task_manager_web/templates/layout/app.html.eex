@@ -28,6 +28,11 @@
 	    <li class="nav-item">
 	      <a href="<%= Routes.assign_path(@conn, :index) %>" class="nav-link">In Progress</a>
 	    </li>
+            <%= if @current_user && TaskManager2Web.PageView.is_manager?(Plug.Conn.get_session(@conn, :user_id)) do %>
+            <li class="nav-item">
+              <a href="<%= Routes.user_path(@conn, :index) %>" class="nav-link">Edit Users</a>
+            </li>
+            <% end %>
 	  </ul>
 	</div>
 	<div class="col-3">

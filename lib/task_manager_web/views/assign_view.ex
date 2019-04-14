@@ -14,4 +14,10 @@ defmodule TaskManager2Web.AssignView do
     end
   end
 
+  def convert_to_local(time) do
+    time
+    |> Timex.Timezone.convert(Timex.local.time_zone)
+    |> DateTime.to_naive
+  end
+
 end

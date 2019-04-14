@@ -28,9 +28,9 @@
        <%= for timeblock <- @timeblocks do %>
          <tr>
            <td><%= @assign.task.title %> (<%= timeblock.id %>)</td>
-           <td><%= timeblock.start_time %></td>
+           <td><span id="start-date-<%=timeblock.id %>"><%= convert_to_local(timeblock.start_time) %></span></td>
            <td>
-             <%= timeblock.end_time %>
+             <%= convert_to_local(timeblock.end_time) %>
              <br />
              <input type="date" id="date-<%=timeblock.id %>" /><input type="time" id="time-<%= timeblock.id %>" />
            </td>
