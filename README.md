@@ -91,3 +91,12 @@ Additionally, only the end_time is editable at this time.
 
 When a manager is directed to create a new assignment, the available users to assign to is prefiltered to only members of the
 manager's organization (1 level deep). Furthermore, attempts to create assignments in which non-managers are the assigner will fail.
+
+-- Version 3 Additions --
+Time blocks now display as the server's local time rather than as UTC datetime.
+
+Invalid end times (i.e. an end time before a start time) are rejected updates on the front end.
+
+Users can now make themselves managers from the create user page.
+
+Managers have the ability to edit other users (at this time, they can edit other managers as well, including updating their roles unfortunately).
